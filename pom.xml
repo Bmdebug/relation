@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.7.1</version>
+		<relativePath/> <!-- lookup parent from repository -->
+	</parent>
+	<groupId>com.bm</groupId>
+	<artifactId>relation</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>relation</name>
+	<description>Store and analyze relationships project for Spring Boot</description>
+	<properties>
+		<!-- jdk 继 8，11 后的长期稳定版  -->
+		<java.version>17</java.version>
+		<!-- https://start.spring.io/actuator/info  -->
+		<maven.compiler.source>${java.version}</maven.compiler.source>
+		<maven.compiler.target>${java.version}</maven.compiler.target>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<springfox.version>3.0.0</springfox.version>
+	</properties>
+	<dependencies>
+		<!-- *****************spring 基础组件Begin *****************-->
+		<!-- springboot web组件内置tomcat 项目基于此运行-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<!-- SpringBoot 自动化配置基础包 因需使用yml配置文件导入 -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-configuration-processor</artifactId>
+			<optional>true</optional>
+		</dependency>
+		<!-- Spring Dev Tools 热部署支持 -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+		<!-- Spring boot 测试用例支持 -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/io.springfox/springfox-boot-starter -->
+		<!-- spring 集成 swagger-3.0 用于接口可视化访问 生成接口文档 -->
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-boot-starter</artifactId>
+			<version>3.0.0</version>
+		</dependency>
+		<!-- 异步非阻塞框架 提升吞吐量和伸缩性 graphql依赖于此  -->
+<!--		<dependency>-->
+<!--			<groupId>org.springframework</groupId>-->
+<!--			<artifactId>spring-webflux</artifactId>-->
+<!--			<scope>test</scope>-->
+<!--		</dependency>-->
+		<!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-hateoas -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-hateoas</artifactId>
+			<version>2.7.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-mongodb</artifactId>
+		</dependency>
+		<!-- *****************Spring 基础组件End *****************-->
+
+		<!-- *****************API 可视化 自动文档Begin *****************-->
+		<!-- knife4j增强版swagger 中文友好  -->
+		<dependency>
+			<groupId>com.github.shijingsh</groupId>
+			<artifactId>knife4j-spring-ui</artifactId>
+			<version>3.0.3</version>
+		</dependency>
+		<dependency>
+			<groupId>com.github.xiaoymin</groupId>
+			<artifactId>knife4j-spring-boot-starter</artifactId>
+			<!-- 在引用时请在maven中央仓库搜索3.X最新版本号-->
+			<version>3.0.3</version>
+		</dependency>
+		<!-- *****************API 可视化 自动文档End *****************-->
+
+		<!-- *****************项目基础工具组件Begin *****************-->
+		<!-- 注解自动生成get set 构造等 使用方便 但是侵入性较强 未装lombok控件会报错  -->
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<optional>true</optional>
+		</dependency>
+		<!-- 阿里JSON 工具组件 JSON转换速度较快 -->
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>fastjson</artifactId>
+			<version>1.2.51</version>
+		</dependency>
+		<!-- 谷歌集合类 本项目用于Map实践  -->
+		<dependency>
+			<groupId>com.atlassian.bundles</groupId>
+			<artifactId>google-collections</artifactId>
+			<version>1.0-rc5</version>
+		</dependency>
+		<!-- *****************项目基础工具组件End *****************-->
+
+		<!-- *****************graphql 支持 图形化查询Begin  *****************-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-graphql</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.graphql</groupId>
+			<artifactId>spring-graphql-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+<!--        <dependency>-->
+<!--            <groupId>org.springframework.graphql</groupId>-->
+<!--            <artifactId>spring-graphql</artifactId>-->
+<!--            <version>1.0.0</version>-->
+<!--        </dependency>-->
+        <!--		<dependency>-->
+<!--			<groupId>com.graphql-java-kickstart</groupId>-->
+<!--			<artifactId>graphql-spring-boot-starter</artifactId>-->
+<!--			<version>8.1.1</version>-->
+<!--		</dependency>-->
+
+
+
+		<!-- *****************graphql 支持 图形化查询end  *****************-->
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<excludes>
+						<exclude>
+							<groupId>org.projectlombok</groupId>
+							<artifactId>lombok</artifactId>
+						</exclude>
+					</excludes>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>

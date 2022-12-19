@@ -1,0 +1,24 @@
+
+
+
+type Graph {
+    nodes: [GraphNode]
+    links: [GraphLink]
+    categories : [GraphCategorie]
+}
+type GraphNode {
+    id: String
+    name: String
+    symbolSize: String
+    x: String
+    y: String
+    value: String
+    category: String
+}
+type GraphLink {
+    source: String
+    target: String
+}
+type GraphCategorie {
+    name: String
+}

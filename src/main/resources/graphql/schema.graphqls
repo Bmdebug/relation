@@ -1,0 +1,60 @@
+type Query {
+    bookById(id: ID): Book
+    "查询全量用户信息"
+    findList: [People]
+    findListByLable(str: String): [People]
+    findRelation(id: ID): [People]
+    graph(id: ID): Graph
+}
+
+type Mutation {
+    update(peopleInput: PeopleInput): People
+}
+
+type Book {
+    id: ID
+    name: String
+    pageCount: Int
+    author: Author
+}
+
+type Pen {
+    id: ID
+    name: String
+    pageCount: Int
+    author: Author
+}
+
+type Author {
+    id: ID
+    firstName: String
+    lastName: String
+}
+
+type Link {
+    target: String
+    describe: String
+}
+"""
+**人员类**
+"""
+type People {
+    id: ID
+    "名称"
+    name: String
+    "用户标签"
+    lables: [String]
+    "关联信息"
+    links: [Link]
+}
+
+input PeopleInput {
+    id: ID
+    "名称"
+    name: String
+    "用户标签"
+    lables: [String]
+    "关联信息"
+    links: [String]
+}
+

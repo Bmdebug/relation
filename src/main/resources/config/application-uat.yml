@@ -1,0 +1,6 @@
+﻿mongo:
+  username: mongo
+  password: mongo
+  host: localhost
+  port: 27017
+  name: relation

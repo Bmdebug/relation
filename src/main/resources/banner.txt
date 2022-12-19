@@ -1,0 +1,9 @@
+${AnsiColor.BRIGHT_BLUE}
+=================================================================
+relation Service
+Talk is cheap,show me the code
+目前为测试版本v 1.0.0
+接口地址见 http://localhost:9510/swagger-ui/index.html#/
+接口地址新版 knife4j-spring-ui 集成 增强版UI http://localhost:9510/doc.html
+图形化查询 地址 http://localhost:9510/graphiql?path=/graphql
+=================================================================

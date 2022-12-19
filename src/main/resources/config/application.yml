@@ -1,0 +1,42 @@
+﻿bm:
+  application:
+    name: relation
+    description: 关联分析
+server:
+  port: 9510
+swagger:
+  version: 0.0.1
+  title: ${bm.application.name}
+  description: ${bm.application.description}
+  serverurl: http://localhost:${server.port}
+  apiPackage: com.bm.relation.api
+  contact:
+    name: zyg
+    url: www.google.com
+    email: 15237112069@163.com
+  apis:
+    id: relation
+    url: com.bm.relation.api
+    name: relation
+
+spring:
+  profiles:
+    # 运行时 附带参数动态改变环境值
+    # 默认为 dev 生产需改为 prd  maven -P prd
+    active: dev
+  application:
+    name: ${bm.application.name}
+  data:
+    mongodb:
+      uri: mongodb://${mongo.username}:${mongo.password}@${mongo.host}:${mongo.port}/${mongo.name}?maxidletimems=${mongo.max-idle-time:0}
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+  main:
+    allow-bean-definition-overriding: true
+  graphql:
+    graphiql:
+      enabled: true
+      path: /graphiql
+    cors:
+      allow-credentials: true
